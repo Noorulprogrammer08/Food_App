@@ -4,59 +4,65 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="5dp"
+    android:layout_margin="@dimen/spacing_5"
     app:cardBackgroundColor="@color/pink"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="8dp"
-    app:cardMaxElevation="10dp"
+    app:cardCornerRadius="@dimen/spacing_8"
+    app:cardElevation="@dimen/spacing_8"
+    app:cardMaxElevation="@dimen/spacing_10"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_foodCardContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tv_Food_name"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/spacing_0"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Food Name"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:text="@string/food_name"
+            android:layout_marginStart="@dimen/spacing_10"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="19sp"
+            android:textSize="@dimen/font_spacing_19"
+            app:layout_constraintRight_toLeftOf="@+id/cv_food_product_image"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:ignore="NotSibling" />
 
         <TextView
             android:id="@+id/tv_Food_description"
-            android:layout_width="240dp"
+            android:layout_width="@dimen/spacing_0"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="@dimen/spacing_10"
             android:justificationMode="inter_word"
-            android:padding="6dp"
+            android:padding="@dimen/spacing_10"
             android:maxLines="4"
-            android:maxLength="120"
+
             android:text="@string/food_description"
-            android:textSize="17sp"
+            android:textSize="@dimen/font_spacing"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/cv_food_product_image"
             app:layout_constraintTop_toBottomOf="@id/tv_Food_name" />
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_food_product_image"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:cardCornerRadius="8dp"
-            android:layout_margin="5dp"
-            android:elevation="10dp"
+            app:cardCornerRadius="@dimen/spacing_8"
+            android:layout_margin="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_5"
+            android:elevation="@dimen/spacing_10"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/tv_Food_description">
             <ImageView
                 android:id="@+id/iv_food_product"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="@dimen/spacing_110"
+                android:layout_height="@dimen/spacing_110"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:scaleType="fitXY"
@@ -69,6 +75,5 @@
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.cardview.widget.CardView>

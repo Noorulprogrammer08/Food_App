@@ -3,4 +3,14 @@
     <string name="foods">Foods</string>
     <string name="food_description">Apple Cake might be just the dessert you are searching for. This dairy free and vegetarian recipe serves 12 and costs</string>
     <string name="search_foods">Search Foods...</string>
+    <string name="apple_crumble">Apple Crumble</string>
+    <string name="orange">Orange</string>
+    <string name="pineapple">Pineapple</string>
+    <string name="grapes">Grapes</string>
+    <string name="banana">Banana</string>
+    <string name="jackfruit">JackFruit</string>
+    <string name="watermelon">Watermelon</string>
+    <string name="food_name">Food Name</string>
+    <string name="apple_details">apple details</string>
+    <string name="apple_juice">Apple Juice</string>
 </resources>

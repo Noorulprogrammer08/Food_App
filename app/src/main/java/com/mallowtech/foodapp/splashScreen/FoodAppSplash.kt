@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.mallowtech.foodapp.FoodAppMainActivity
+import com.mallowtech.foodapp.FoodAppList.FoodAppMainActivity
 import com.mallowtech.foodapp.R
 
 class FoodAppSplash : AppCompatActivity() {
@@ -16,8 +16,8 @@ class FoodAppSplash : AppCompatActivity() {
         val splashscreen = findViewById<ImageView>(R.id.iv_food_App)
         splashscreen.alpha = 0f
         splashscreen.animate().setDuration(1000).alpha(1f).withEndAction {
-            val i = Intent(this@FoodAppSplash, FoodAppMainActivity::class.java)
-            startActivity(i)
+            val intent = Intent(this@FoodAppSplash, FoodAppMainActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }

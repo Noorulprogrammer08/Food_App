@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightPink"
+    tools:context=".FoodAppList.FoodAppMainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/ab_foodTopbar"
+        android:layout_width="@dimen/spacing_0"
+        android:layout_height="wrap_content"
+        android:background="@color/pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="NotSibling">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/spacing_12">
+
+            <TextView
+                android:id="@+id/tv_food_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/foods"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_spacing"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/ab_foodTopbar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/iv_filter"
+                android:layout_width="@dimen/spacing_25"
+                android:layout_height="@dimen/spacing_25"
+                app:srcCompat="@drawable/ic_filter"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="@dimen/spacing_10"
+                android:layout_marginBottom="@dimen/spacing_7"
+                app:layout_constraintRight_toLeftOf="@+id/iv_assending"
+                app:layout_constraintBottom_toTopOf="@+id/sv_search" />
+
+            <ImageView
+                android:id="@+id/iv_assending"
+                android:layout_width="@dimen/spacing_22"
+                android:layout_height="@dimen/spacing_25"
+                app:srcCompat="@drawable/ic_decending"
+                android:layout_marginBottom="@dimen/spacing_5"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/sv_search" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/sv_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_0"
+        android:layout_marginTop="@dimen/spacing_10"
+        android:layout_marginLeft="@dimen/spacing_20"
+        android:layout_marginRight="@dimen/spacing_20"
+        android:background="@drawable/search_box"
+        android:hint="@string/search_foods"
+        android:inputType="text"
+        android:minHeight="@dimen/spacing_48"
+        android:paddingStart="@dimen/spacing_10"
+        android:textSize="@dimen/font_spacing"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ab_foodTopbar"
+        tools:ignore="Autofill,RtlSymmetry" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_0"
+        android:id="@+id/sl_refresh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sv_search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_foodlists"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sv_search" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_loading_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/pink"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sv_search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+    <ProgressBar
+        android:id="@+id/pb_loading_Bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/pink"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sl_refresh"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <RadioGroup
+            android:id="@+id/rgFilterbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_25"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="NotSibling">
+
+            <RadioButton
+                android:id="@+id/rbOrange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/orange"
+
+                />
+
+            <RadioButton
+                android:id="@+id/rbPineapple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pineapple"
+
+                />
+
+            <RadioButton
+                android:id="@+id/rbGrapes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grapes"
+
+                />
+
+            <RadioButton
+                android:id="@+id/rbBanana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/banana" />
+
+            <RadioButton
+                android:id="@+id/rbJackFruit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jackfruit" />
+
+            <RadioButton
+                android:id="@+id/rbWatermelon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/watermelon" />
+
+        </RadioGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
